@@ -1,3 +1,4 @@
+//This is the base set of functions for the spawn system
 package script.systems.spawning;
 
 import script.*;
@@ -12,15 +13,15 @@ public class spawn_base extends script.base_script
     {
     }
     public static final int SPAWN_HEARBEAT_SPAWN_EVENT = 5;
-    public static final int SPAWN_PLAYER_DELAY_MIN = 30;
-    public static final int SPAWN_PLAYER_DELAY_MAX = 60;
-    public static final int SPAWN_DISTANCE_MIN = 12;
-    public static final int SPAWN_DISTANCE_MAX = 32;
-    public static final int SPAWN_CHECK_DISTANCE = 64;
-    public static final int SPAWN_CHECK_LIMIT = 15;
-    public static final int SPAWN_TEMPLATE_CHECK_DISTANCE = 128;
-    public static final int SPAWN_CHECK_TEMPLATE_LIMIT = 14;
-    public static final int SPAWN_THEATER_CHECK_DISTANCE = 200;
+    public static final int SPAWN_PLAYER_DELAY_MIN = 1;	// delay min for spawning things (was 30)
+    public static final int SPAWN_PLAYER_DELAY_MAX = 1;	// delay max for spawning things (was 30)
+    public static final int SPAWN_DISTANCE_MIN = 256;	// minimal spawn distance 
+    public static final int SPAWN_DISTANCE_MAX = 512;	// maximum spawn distance 
+    public static final int SPAWN_CHECK_DISTANCE = 128;	// minimal distance between last spawn and player before continue script  (was 64)
+    public static final int SPAWN_CHECK_LIMIT = 15;	// max creatures in area (was 15)
+    public static final int SPAWN_TEMPLATE_CHECK_DISTANCE = 128;	// minimal distance between last spawn and player before continue script  (was 128) 
+    public static final int SPAWN_CHECK_TEMPLATE_LIMIT = 14;	// max templates in area (was 14)
+    public static final int SPAWN_THEATER_CHECK_DISTANCE = 200; // minimal distance between last spawn and player before continue script    (was 200) 
     public static final int SPAWN_CHECK_THEATER_LIMIT = 1;
     public static final int EXTERIOR_SPAWN_CHANCE = 50;
     public static final int EXTERIOR_MAX_NPC = 10;
@@ -29,7 +30,7 @@ public class spawn_base extends script.base_script
     public static final int INTERIOR_MIN_NPC = 4;
     public static final int PLAYER_TO_NPC_RATIO = 1;
     public static final boolean boolFastSpawnEnabled = false;
-    public static final int MAXIMUM_SPAWNING_RUN_TIME_RULES = 200;
+    public static final int MAXIMUM_SPAWNING_RUN_TIME_RULES = 400; //idk but double it
     public static final float CREATURES_TO_PLAYERS_RATIO = 20;
     public static final String[] INVALID_SPAWNING_AREAS = 
     {
@@ -573,7 +574,8 @@ public class spawn_base extends script.base_script
             dctParams.put("strTemplate", params.getString("strTemplate"));
             float fltSize = getLocationSize(params.getInt("intSize"));
             utils.setScriptVar(self, "dctSpawnInfo", dctParams);
-            requestLocation(self, "spawnLocation", locSpawnLocation, 100.0f, fltSize, true, false);
+            //requestLocation(self, "spawnLocation", locSpawnLocation, 100.0f, fltSize, true, false);
+            requestLocation(self, "spawnLocation", locSpawnLocation, 1024.0f, fltSize, true, false); // search radius of spawnlocation for template
         }
     }
     public int OnLocationReceived(obj_id self, String strId, obj_id objObject, location locSpawnLocation, float fltRadius) throws InterruptedException

@@ -1,3 +1,4 @@
+//This is the base set of functions for players
 package script.player.base;
 
 import script.*;
@@ -2368,7 +2369,7 @@ public class base_player extends script.base_script
             }
             return SCRIPT_CONTINUE;
         }
-        obj_id[] near = getNonCreaturesInRange(getWorldLocation(self), 128.0f);
+        obj_id[] near = getNonCreaturesInRange(getWorldLocation(self), 128.0f); // range to get objects near player
         location here = getWorldLocation(self);
         obj_id closest = null;
         float maxdist = 9999.0f;

@@ -1,3 +1,4 @@
+// control the generic spawner
 package script.theme_park.dungeon;
 
 import script.dictionary;
@@ -240,7 +241,7 @@ public class generic_spawner extends script.base_script
         location locTest = new location(xCoord, yCoord, zCoord, planet, room);
         if (dataTableHasColumn(datatable, "radius"))
         {
-            float fltRadius = dataTableGetFloat(datatable, x, "radius");
+            float fltRadius = dataTableGetFloat(datatable, x, "radius"); // search radius of genericspawner location
             if (fltRadius != 0)
             {
                 locTest = spawning.getRandomLocationInCircle(locTest, fltRadius);

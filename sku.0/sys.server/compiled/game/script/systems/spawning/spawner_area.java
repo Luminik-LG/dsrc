@@ -1,3 +1,4 @@
+// control the area groundspawner
 package script.systems.spawning;
 
 import script.dictionary;
@@ -52,7 +53,7 @@ public class spawner_area extends script.base_script
             return SCRIPT_CONTINUE;
         }
         int intGoodLocationSpawner = getIntObjVar(self, "intGoodLocationSpawner");
-        float fltRadius = getFloatObjVar(self, "fltRadius");
+        float fltRadius = getFloatObjVar(self, "fltRadius"); // search radius of area location
         String strSpawnType = getStringObjVar(self, "strSpawns");
         float fltSize = 8.0f;
         String strSpawn = strSpawnType;

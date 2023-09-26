@@ -1,3 +1,4 @@
+// control poi objects
 package script.theme_park.poi;
 
 import script.dictionary;
@@ -464,7 +465,7 @@ public class poi_object extends script.theme_park.poi.base
         int numPlayers = utils.getIntScriptVar(self, "poi.numPlayers");
         if (numPlayers == 0)
         {
-            beginSleepMode(self);
+            //beginSleepMode(self); // override the beginsleepmode to avoid lairs disappearance
         }
         return SCRIPT_CONTINUE;
     }

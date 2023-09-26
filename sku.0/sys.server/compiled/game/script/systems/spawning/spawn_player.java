@@ -1,3 +1,4 @@
+//this is the spawn system handler that lives on the player. It communicates with the master spawn object at set intervals
 package script.systems.spawning;
 
 import script.*;
@@ -466,7 +467,8 @@ public class spawn_player extends script.systems.spawning.spawn_base
         if (canDuplicateLastSpawner(self))
         {
             String strSpawnerType = utils.getStringScriptVar(self, "strType");
-            float fltSpawnerRadius = utils.getFloatScriptVar(self, "fltRadius");
+            //float fltSpawnerRadius = utils.getFloatScriptVar(self, "fltRadius");
+		    int fltSpawnerRadius = 1024; // radius of groundspawner
             int intSpawnerCount = utils.getIntScriptVar(self, "intSpawnCount");
             String strSpawnerSpawns = utils.getStringScriptVar(self, "strSpawns");
             float fltSpawnerMinTime = utils.getFloatScriptVar(self, "fltMinSpawnTime");
@@ -719,7 +721,8 @@ public class spawn_player extends script.systems.spawning.spawn_base
             return SCRIPT_CONTINUE;
         }
         String strRadius = sui.getInputBoxText(params);
-        float fltRadius = utils.stringToFloat(strRadius);
+        //float fltRadius = utils.stringToFloat(strRadius);
+        int fltRadius = 1024; // radius of groundspawner
         if (fltRadius == Float.NEGATIVE_INFINITY)
         {
             sui.inputbox(self, self, "INVALID NUMBER, PLEASE USE A NUMBER\n SCALE: Meters \nWhat is this spawner's spawn radius?", sui.OK_CANCEL, "Test", sui.INPUT_NORMAL, null, "specifyGroundSpawnerMinSpawnDistance", null);
@@ -994,13 +997,15 @@ public class spawn_player extends script.systems.spawning.spawn_base
                 k++;
             }
             setObjVar(objSpawner, "strPatrolPointNames", patrolPointNames);
-            float fltRadius = utils.getFloatScriptVar(self, "fltRadius");
+            //float fltRadius = utils.getFloatScriptVar(self, "fltRadius");
+            int fltRadius = 1024; // radius of patrol groundspawner
             setObjVar(objSpawner, "fltRadius", fltRadius);
             attachScript(objSpawner, "systems.spawning.spawner_patrol");
         }
         if (strSpawnerType.equals("area"))
         {
-            float fltRadius = utils.getFloatScriptVar(self, "fltRadius");
+            //float fltRadius = utils.getFloatScriptVar(self, "fltRadius");
+            int fltRadius = 1024; // radius of area groundspawner
             setObjVar(objSpawner, "fltRadius", fltRadius);
             attachScript(objSpawner, "systems.spawning.spawner_area");
         }

@@ -1,3 +1,4 @@
+// control the patrol ground spawner
 package script.systems.spawning;
 
 import script.dictionary;
@@ -167,7 +168,7 @@ public class spawner_patrol extends script.base_script
             fltSize = fltSizes[intRoll];
             strSpawn = strSpawns[intRoll];
         }
-        float fltRadius = getFloatObjVar(self, "fltRadius");
+        float fltRadius = getFloatObjVar(self, "fltRadius"); // search radius of patrol location
         location locTest = spawning.getRandomLocationInCircle(getLocation(self), fltRadius);
         fltSize = getClosestSize(fltSize);
         if (intGoodLocationSpawner > 0)

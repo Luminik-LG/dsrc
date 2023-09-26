@@ -1,3 +1,4 @@
+//This is the base set of functions for lair
 package script.theme_park.lair;
 
 import script.dictionary;
@@ -10,7 +11,7 @@ public class lair_base extends script.theme_park.poi.base
     public lair_base()
     {
     }
-    public static final int LAIR_RANGE = 200;
+    public static final int LAIR_RANGE = 200; // range of lair
     public static final int LAIR_LIMIT = 2;
     public int OnInitialize(obj_id self) throws InterruptedException
     {

@@ -1,3 +1,4 @@
+//This is the base set of functions for missions
 package script.systems.missions.base;
 
 import script.*;
@@ -28,7 +29,7 @@ public class mission_base extends script.base_script
     public static final int DROID_FIND_TARGET = 2;
     public static final int FACTION_NONE = 0;
     public static final float BOUNTY_REWARD_MODIFIER = 0.75f;
-    public static final int MISSION_SPAWN_TRIGGER_RANGE = 256;
+    public static final int MISSION_SPAWN_TRIGGER_RANGE = 256; // distance to trigger a mission
     public static final int STATE_BOUNTY_INFORMANT = 0;
     public static final int STATE_BOUNTY_PROBE = 1;
     public static final int INFORMANT_EASY = 1;

@@ -1,3 +1,4 @@
+// This is the base set of functions for poi
 package script.theme_park.poi;
 
 import script.dictionary;
@@ -91,7 +92,8 @@ public class launch extends script.theme_park.poi.base
     }
     public int handleLairInRangeCheck(obj_id self, dictionary params) throws InterruptedException
     {
-        obj_id[] otherObjects = getAllObjectsWithTemplate(getLocation(self), 80.0f, "object/tangible/lair/npc_lair.iff");
+        //obj_id[] otherObjects = getAllObjectsWithTemplate(getLocation(self), 80.0f, "object/tangible/lair/npc_lair.iff");
+        obj_id[] otherObjects = getAllObjectsWithTemplate(getLocation(self), 256.0F, "object/tangible/lair/npc_lair.iff");  // minimal distance allowing script to launch a npc_lair (make space between lairs)
         if (otherObjects == null || otherObjects.length < 2)
         {
             launchPoi(self);
